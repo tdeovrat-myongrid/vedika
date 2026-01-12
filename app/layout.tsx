@@ -1,23 +1,24 @@
 import type { Metadata } from "next";
-import { DM_Sans, DM_Serif_Text } from "next/font/google"; // turbo
+import { Outfit, Inter } from "next/font/google"; // turbo
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
 });
 
-const dmSerif = DM_Serif_Text({
-  variable: "--font-dm-serif",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
-  weight: ["400"],
 });
 
 export const metadata: Metadata = {
-  title: "Vedika | Modern Shopping Experience",
-  description: "Discover curated collections at Vedika. Your premium destination for style.",
+  title: "The Clean Crate | High Protein Oats",
+  description: "Fuel your day with our premium protein-packed oat mixes. 100% natural, delicious, and convenient.",
 };
+
+import { ThemeProvider } from "@/components/theme-provider";
+import { SiteHeader } from "@/components/site-header";
 
 export default function RootLayout({
   children,
@@ -25,11 +26,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${dmSans.variable} ${dmSerif.variable} antialiased`}
+        className={`${inter.variable} ${outfit.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <SiteHeader />
+          <div className="flex flex-col min-h-screen">
+            {children}
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );
