@@ -469,5 +469,68 @@ export const blogPosts: BlogPost[] = [
     date: "December 10, 2025",
     image: "/blog-oats-recipes.png",
     category: "Recipes"
+  },
+  {
+    id: "5",
+    slug: "ultimate-guide-overnight-oats",
+    title: "The Ultimate Guide to Overnight Oats: Prep Once, Eat All Week",
+    excerpt: "Discover the easiest, most delicious breakfast meal prep hack. Overnight oats are versatile, nutritious, and perfect for busy mornings.",
+    content: `
+      <h2>The Ultimate Guide to Overnight Oats</h2>
+      <p>Mornings can be chaotic, but your breakfast doesn't have to suffer. Enter **Overnight Oats**—the ultimate meal prep hack that guarantees a nutritious, delicious start to your day with zero morning effort.</p>
+
+      <h3>What Are Overnight Oats?</h3>
+      <p>Unlike traditional oatmeal that is cooked, overnight oats are made by soaking rolled oats in liquid (milk, yogurt, or plant-based alternatives) for several hours or overnight. This process softens the oats, making them creamy, digestible, and ready to eat straight from the fridge.</p>
+
+      <h3>Why You Should Try Them</h3>
+      <ul class="list-disc pl-5 space-y-2 mb-6">
+        <li><strong>Time-Saving:</strong> Prep in 5 minutes the night before, grab and go in the morning.</li>
+        <li><strong>Highly Nutritious:</strong> Retains all the fiber and protein of oats, plus nutrients from your mix-ins.</li>
+        <li><strong>Versatile:</strong> Endless flavor combinations mean you'll never get bored.</li>
+        <li><strong>Digestive Health:</strong> Soaking oats breaks down phytic acid, making nutrients easier to absorb.</li>
+      </ul>
+
+      <h3>The Perfect Base Recipe</h3>
+      <div class="bg-zinc-100 dark:bg-zinc-800 p-6 rounded-2xl my-6">
+        <h4 class="font-bold text-lg mb-4">Ingredients (Per Jar):</h4>
+        <ul class="list-disc pl-5 mb-4 space-y-1">
+            <li>½ cup Rolled Oats (not instant)</li>
+            <li>½ cup Milk (dairy, almond, oat, soy)</li>
+            <li>¼ cup Greek Yogurt (for creaminess and protein)</li>
+            <li>1 tbsp Chia Seeds (for thickening and omega-3s)</li>
+            <li>1 tbsp Honey or Maple Syrup (sweetener)</li>
+            <li>½ tsp Vanilla Extract</li>
+        </ul>
+        <h4 class="font-bold text-lg mb-4">Instructions:</h4>
+        <ol class="list-decimal pl-5 space-y-1">
+            <li>Add all ingredients to a glass jar or container.</li>
+            <li>Stir well to combine (ensure chia seeds aren't clumped).</li>
+            <li>Cover and refrigerate for at least 4 hours, preferably overnight.</li>
+            <li>In the morning, top with fresh fruit, nuts, or nut butter and enjoy!</li>
+        </ol>
+      </div>
+
+      <h3>3 Delicious Flavor Variations</h3>
+      
+      <h4>1. Berry Blast 🍓</h4>
+      <p>Add a handful of fresh or frozen strawberries and blueberries. Top with almonds for crunch.</p>
+
+      <h4>2. Chocolate Peanut Butter 🍫🥜</h4>
+      <p>Mix in 1 tbsp cocoa powder and 1 tbsp peanut butter. Taste like dessert for breakfast!</p>
+
+      <h4>3. Apple Pie 🍎🥧</h4>
+      <p>Add chopped apples, a pinch of cinnamon, and a few raisins or walnuts.</p>
+
+      <h3>Storage Tips</h3>
+      <p>Overnight oats can be stored in the refrigerator for up to <strong>5 days</strong>, making them perfect for Sunday meal prep. Just keep the fresh fruit toppings separate until you're ready to eat to prevent sogginess.</p>
+
+      <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl text-center font-medium text-blue-800 dark:text-blue-300 mt-8">
+        "consistency is key not just in texture, but in habits. Start your healthy habit tonight!"
+      </div>
+    `,
+    author: "Vedika",
+    date: "January 14, 2026",
+    image: "/blog-overnight-oats.png",
+    category: "Recipes"
   }
 ];
