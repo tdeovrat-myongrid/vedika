@@ -7,6 +7,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ModeToggle } from "@/components/mode-toggle"
 import { ArrowUp, Menu, X } from "lucide-react"
+import { useCart } from "@/context/cart-context"
 
 const NAV_LINKS = [
     { name: "Home", href: "/#home" },
@@ -22,7 +23,13 @@ export function SiteHeader() {
     const [activeSection, setActiveSection] = useState("home")
     const [showScrollTop, setShowScrollTop] = useState(false)
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    const [mounted, setMounted] = useState(false)
     const pathname = usePathname()
+    const { cartCount, openCart } = useCart()
+
+    useEffect(() => {
+        setMounted(true)
+    }, [])
 
     useEffect(() => {
         const handleScroll = () => {
@@ -76,6 +83,17 @@ export function SiteHeader() {
         window.scrollTo({ top: 0, behavior: "smooth" })
     }
 
+    // Avoid hydration mismatch by not rendering until mounted
+    if (!mounted) {
+        return (
+            <nav className="fixed top-0 z-50 w-full border-b border-zinc-100 bg-white/80 backdrop-blur-xl dark:border-zinc-800 dark:bg-black/80">
+                <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
+                    {/* Static header placeholder to prevent CLS */}
+                </div>
+            </nav>
+        )
+    }
+
     return (
         <>
             <nav className="fixed top-0 z-50 w-full border-b border-zinc-100 bg-white/80 backdrop-blur-xl dark:border-zinc-800 dark:bg-black/80 transition-all duration-300">
@@ -106,9 +124,19 @@ export function SiteHeader() {
 
                     <div className="flex items-center gap-4">
                         <ModeToggle />
-                        <button className="hidden sm:block text-sm font-medium hover:text-blue-600 dark:text-white transition-colors">Login</button>
-                        <button className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-all hover:bg-zinc-800 hover:scale-105 dark:bg-white dark:text-black dark:hover:bg-zinc-200">
-                            Cart (0)
+                        <a
+                            href="https://cleancrate-8642.myshopify.com/account/login"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hidden sm:block text-sm font-medium hover:text-blue-600 dark:text-white transition-colors"
+                        >
+                            Login
+                        </a>
+                        <button
+                            onClick={openCart}
+                            className="rounded-full bg-black px-4 py-2 text-sm font-medium text-white transition-all hover:bg-zinc-800 hover:scale-105 dark:bg-white dark:text-black dark:hover:bg-zinc-200 relative"
+                        >
+                            Cart ({cartCount})
                         </button>
 
                         {/* Hamburger Button */}
@@ -139,9 +167,12 @@ export function SiteHeader() {
                             </a>
                         ))}
                         <div className="border-t border-zinc-100 dark:border-zinc-800 my-2 pt-2">
-                            <button className="w-full text-left font-semibold text-base py-3 px-4 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-xl">
+                            <a
+                                href="https://cleancrate-8642.myshopify.com/account/login"
+                                className="block w-full text-left font-semibold text-base py-3 px-4 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-xl"
+                            >
                                 Login
-                            </button>
+                            </a>
                         </div>
                     </div>
                 )}
