@@ -50,8 +50,8 @@ function formatVariantId(id: string): string {
 }
 
 /**
- * Create a checkout with the given line items
- * Returns the checkout URL for redirect
+ * Create a cart with the given line items and return the checkout URL
+ * This helps bypass the password page logic by using the Cart API
  */
 export async function createStorefrontCheckout(items: CartLineItem[]): Promise<string> {
     if (!storefrontToken) {
@@ -64,19 +64,19 @@ export async function createStorefrontCheckout(items: CartLineItem[]): Promise<s
         return `https://${domain}/cart/${param}`;
     }
 
-    const lineItems = items.map(item => ({
-        variantId: formatVariantId(item.variantId),
+    const lines = items.map(item => ({
+        merchandiseId: formatVariantId(item.variantId),
         quantity: item.quantity,
     }));
 
     const mutation = `
-    mutation checkoutCreate($input: CheckoutCreateInput!) {
-      checkoutCreate(input: $input) {
-        checkout {
+    mutation cartCreate($lines: [CartLineInput!]!) {
+      cartCreate(input: { lines: $lines }) {
+        cart {
           id
-          webUrl
+          checkoutUrl
         }
-        checkoutUserErrors {
+        userErrors {
           code
           field
           message
@@ -87,23 +87,23 @@ export async function createStorefrontCheckout(items: CartLineItem[]): Promise<s
 
     try {
         const response = await storefrontFetch(mutation, {
-            input: { lineItems },
+            lines: lines,
         });
 
-        const { checkout, checkoutUserErrors } = response.data.checkoutCreate;
+        const { cart, userErrors } = response.data.cartCreate;
 
-        if (checkoutUserErrors && checkoutUserErrors.length > 0) {
-            console.error("Checkout creation errors:", checkoutUserErrors);
-            throw new Error(checkoutUserErrors[0].message);
+        if (userErrors && userErrors.length > 0) {
+            console.error("Cart creation errors:", userErrors);
+            throw new Error(userErrors[0].message);
         }
 
-        if (!checkout?.webUrl) {
+        if (!cart?.checkoutUrl) {
             throw new Error("No checkout URL returned");
         }
 
-        return checkout.webUrl;
+        return cart.checkoutUrl;
     } catch (error) {
-        console.error("Failed to create checkout:", error);
+        console.error("Failed to create checkout via API, falling back to permalink:", error);
         // Fallback to cart permalink
         const param = items.map(item => {
             const numericId = item.variantId.split("/").pop();
