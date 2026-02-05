@@ -1,16 +1,14 @@
 const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "cleancrate-8642.myshopify.com";
-const apiKey = process.env.SHOPIFY_API_KEY || "";
-const apiSecret = process.env.SHOPIFY_API_SECRET || "";
+const storefrontToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN || "";
 
 async function ShopifyData(query: string) {
-  // Admin API Endpoint
-  const URL = `https://${domain}/admin/api/2024-01/graphql.json`;
+  const URL = `https://${domain}/api/2024-01/graphql.json`;
 
   const options = {
     endpoint: URL,
     method: "POST",
     headers: {
-      "X-Shopify-Access-Token": apiSecret,
+      "X-Shopify-Storefront-Access-Token": storefrontToken,
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ query }),
@@ -18,20 +16,6 @@ async function ShopifyData(query: string) {
 
   try {
     const response = await fetch(URL, options);
-    if (response.status === 401) {
-      console.warn("Direct token failed, trying Basic Auth...");
-      const basicAuth = Buffer.from(`${apiKey}:${apiSecret}`).toString('base64');
-      const basicOptions = {
-        ...options,
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": `Basic ${basicAuth}`
-        }
-      };
-      const retryResponse = await fetch(URL, basicOptions);
-      return await retryResponse.json();
-    }
-
     const data = await response.json();
     if (data.errors) {
       console.error("Shopify API Errors:", data.errors);
@@ -46,19 +30,22 @@ async function ShopifyData(query: string) {
 export async function getProduct(handle: string) {
   const query = `
   {
-    productByHandle(handle: "${handle}") {
+    product(handle: "${handle}") {
       id
       title
       handle
       description
-      status
+      availableForSale
       variants(first: 10) {
         edges {
           node {
             id
             title
-            price
-            inventoryQuantity
+            price {
+              amount
+              currencyCode
+            }
+            quantityAvailable
           }
         }
       }
@@ -75,61 +62,37 @@ export async function getProduct(handle: string) {
 
   try {
     const response = await ShopifyData(query);
-    const product = response.data?.productByHandle;
+    const product = response.data?.product;
 
     if (!product) return null;
 
     return {
       ...product,
-      availableForSale: product.status === 'ACTIVE',
-      priceRange: {
-        minVariantPrice: {
-          amount: product.variants.edges[0]?.node?.price || "0",
-          currencyCode: "INR"
-        }
-      },
       variants: {
         edges: product.variants.edges.map((e: any) => ({
           node: {
             ...e.node,
-            price: { amount: e.node.price, currencyCode: "INR" },
-            availableForSale: e.node.inventoryQuantity > 0
+            price: e.node.price, // Already in correct format { amount, currencyCode }
+            inventoryQuantity: e.node.quantityAvailable,
+            availableForSale: e.node.quantityAvailable > 0
           }
         }))
+      },
+      priceRange: {
+        minVariantPrice: product.variants.edges[0]?.node?.price || { amount: "0", currencyCode: "INR" }
       }
     };
   } catch (error) {
-    console.log("Using Hardcoded Real Product Data for Robustness");
+    console.log("Error fetching product, returning mock data");
     return {
-      id: "15682684780625",
+      id: "8350944591917",
       title: "Ready to eat oats Mocha rush",
-      handle: "ready-to-eat-oats-mocha-rush",
-      description: "Start your day with Mocha Rush Ready To Eat Oats, a wholesome, protein-rich breakfast crafted for modern, health-conscious lifestyles.",
+      handle: "mocha-rush-ready-to-eat-oats",
+      description: "Start your day with Mocha Rush Ready To Eat Oats.",
       availableForSale: true,
-      priceRange: {
-        minVariantPrice: {
-          amount: "110.00",
-          currencyCode: "INR"
-        }
-      },
-      images: {
-        edges: [
-          { node: { url: "https://cdn.shopify.com/s/files/1/1012/1124/2577/files/WhatsAppImage2026-01-01at3.50.51PM.jpg?v=1769837609", altText: "Mocha Rush" } }
-        ]
-      },
-      variants: {
-        edges: [
-          {
-            node: {
-              id: "59037374054481",
-              title: "Default Title",
-              availableForSale: true,
-              price: { amount: "110.00", currencyCode: "INR" },
-              inventoryQuantity: 100
-            }
-          }
-        ]
-      }
+      priceRange: { minVariantPrice: { amount: "110.00", currencyCode: "INR" } },
+      images: { edges: [{ node: { url: "https://cdn.shopify.com/s/files/1/1012/1124/2577/files/WhatsAppImage2026-01-01at3.50.51PM.jpg", altText: "Mocha Rush" } }] },
+      variants: { edges: [{ node: { id: "44416942178349", title: "Default Title", availableForSale: true, price: { amount: "599.00", currencyCode: "INR" }, inventoryQuantity: 100 } }] }
     };
   }
 }
@@ -143,12 +106,15 @@ export async function getProducts() {
           id
           title
           handle
-          status
+          availableForSale
           variants(first: 1) {
             edges {
-             node {
-               price
-             }
+              node {
+                price {
+                  amount
+                  currencyCode
+                }
+              }
             }
           }
           images(first: 1) {
@@ -170,10 +136,7 @@ export async function getProducts() {
       node: {
         ...e.node,
         priceRange: {
-          minVariantPrice: {
-            amount: e.node.variants.edges[0]?.node?.price || "0",
-            currencyCode: "INR"
-          }
+          minVariantPrice: e.node.variants.edges[0]?.node?.price || { amount: "0", currencyCode: "INR" }
         }
       }
     })) || [];
@@ -239,7 +202,8 @@ const defaultTestimonials: Testimonial[] = [
   }
 ];
 
-const storefrontToken = process.env.NEXT_PUBLIC_SHOPIFY_STOREFRONT_TOKEN || "5f25b0b15df7b2881900ac57a4ee118d";
+// Token is already defined globally at the top of the file
+
 
 /**
  * Fetches testimonials from Shopify Metaobjects via Storefront API.

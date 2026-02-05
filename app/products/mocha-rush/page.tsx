@@ -7,7 +7,7 @@ import Link from "next/link";
 import { getProduct } from "@/lib/shopify";
 
 export default async function MochaRushProductPage() {
-    const product = await getProduct("mocha-rush");
+    const product = await getProduct("mocha-rush-ready-to-eat-oats");
 
     return (
         <div className="min-h-screen bg-white text-zinc-900 selection:bg-black selection:text-white dark:bg-black dark:text-white dark:selection:bg-white dark:selection:text-black">

@@ -33,7 +33,7 @@ export function ProductDetailsSection({ showViewDetailsLink = true, product }: P
 
     const handleAddToCart = async () => {
         // Fallback for demo if variantId is missing (Use Real ID)
-        const activeVariantId = variantId || "59037374054481";
+        const activeVariantId = variantId || "44416942178349";
         // Get image URL safely
         const imageUrl = product?.images?.edges?.[0]?.node?.url || "/pousht-pop-oats.jpg";
 

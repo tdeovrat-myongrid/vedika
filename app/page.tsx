@@ -20,7 +20,7 @@ import { getProduct, getTestimonials } from "@/lib/shopify";
 // Rebuild force
 export default async function Home() {
   const reels = await getLatestReels();
-  const product = await getProduct("mocha-rush");
+  const product = await getProduct("mocha-rush-ready-to-eat-oats");
   const testimonials = await getTestimonials();
 
   return (

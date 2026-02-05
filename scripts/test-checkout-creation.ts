@@ -27,7 +27,7 @@ async function run() {
     // A mock item
     const items = [
         {
-            variantId: "gid://shopify/ProductVariant/59037374054481",
+            variantId: "gid://shopify/ProductVariant/44416942178349",
             quantity: 1
         }
     ];
