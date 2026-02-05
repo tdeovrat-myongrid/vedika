@@ -125,7 +125,7 @@ export function SiteHeader() {
                     <div className="flex items-center gap-4">
                         <ModeToggle />
                         <a
-                            href="https://cleancrate-8642.myshopify.com/account/login"
+                            href="https://ufybyf-s9.myshopify.com/account/login"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hidden sm:block text-sm font-medium hover:text-blue-600 dark:text-white transition-colors"
@@ -168,7 +168,7 @@ export function SiteHeader() {
                         ))}
                         <div className="border-t border-zinc-100 dark:border-zinc-800 my-2 pt-2">
                             <a
-                                href="https://cleancrate-8642.myshopify.com/account/login"
+                                href="https://ufybyf-s9.myshopify.com/account/login"
                                 className="block w-full text-left font-semibold text-base py-3 px-4 text-zinc-600 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-900 rounded-xl"
                             >
                                 Login

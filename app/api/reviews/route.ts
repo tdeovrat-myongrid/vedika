@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const domain = process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN || "cleancrate-8642.myshopify.com";
+const domain = "ufybyf-s9.myshopify.com";
 const apiSecret = process.env.SHOPIFY_API_SECRET || "";
 
 /**
