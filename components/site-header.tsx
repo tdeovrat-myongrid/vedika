@@ -1,9 +1,8 @@
 "use client"
 
-"use client"
-
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { ModeToggle } from "@/components/mode-toggle"
 import { ArrowUp, Menu, X } from "lucide-react"
@@ -99,8 +98,14 @@ export function SiteHeader() {
             <nav className="fixed top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-xl transition-all duration-300">
                 <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
                     <Link href="/" onClick={scrollToTop} className="flex items-center gap-2 group">
-                        <span className="font-heading text-xl font-bold tracking-tight text-foreground transition-colors">CLEAN CRATE</span>
-                        <div className="h-2 w-2 rounded-full bg-accent group-hover:scale-125 transition-transform"></div>
+                        <Image
+                            src="/logo-new.jpg"
+                            alt="Clean Crate"
+                            width={160}
+                            height={40}
+                            className="h-10 w-auto object-contain"
+                            priority
+                        />
                     </Link>
 
                     <div className="hidden gap-8 lg:flex">
@@ -133,6 +138,7 @@ export function SiteHeader() {
                             Login
                         </a>
                         <button
+                            onClick={openCart}
                             className="btn-primary relative text-sm"
                         >
                             Cart ({cartCount})
