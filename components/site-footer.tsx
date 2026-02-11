@@ -11,7 +11,7 @@ export function SiteFooter() {
                     {/* Brand Section */}
                     <div className="lg:col-span-1">
                         <Link href="/" className="flex items-center gap-2 mb-6">
-                            <span className="font-heading text-2xl font-bold tracking-tight text-black dark:text-white">CLEAN CRATE</span>
+                            <span className="font-heading text-2xl font-bold tracking-tight text-black dark:text-white">THE CLEAN CRATE</span>
                             <div className="h-2 w-2 rounded-full bg-blue-600"></div>
                         </Link>
                         <p className="text-zinc-500 dark:text-zinc-400 text-sm leading-relaxed mb-8 max-w-xs">
@@ -48,7 +48,7 @@ export function SiteFooter() {
                         <ul className="space-y-4 text-sm text-zinc-500 dark:text-zinc-400">
                             <li><NavLink href="#">Help & FAQ</NavLink></li>
                             <li><NavLink href="#">Track Order</NavLink></li>
-                            <li><NavLink href="#">Shipping & Returns</NavLink></li>
+                            <li><NavLink href="/refund-policy">Shipping & Returns</NavLink></li>
                             <li><NavLink href="#">Contact Us</NavLink></li>
                         </ul>
                     </div>
