@@ -39,7 +39,7 @@ export default function AboutPage() {
                     <div className="relative w-full aspect-[16/9] md:aspect-[21/9] rounded-[2.5rem] overflow-hidden shadow-2xl mb-24 border border-zinc-100 dark:border-zinc-800">
                         <Image
                             src="/our-story-founders.png"
-                            alt="PoushtPop Founders in Kitchen"
+                            alt="The Clean Crate Founders in Kitchen"
                             fill
                             className="object-cover"
                             priority
@@ -55,16 +55,16 @@ export default function AboutPage() {
                         </div>
                         <div className="md:col-span-8 space-y-6 text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
                             <p>
-                                PoushtPop was born from a very real, everyday struggle — wanting to eat healthy without giving up on taste, convenience, or trust. In a world full of “healthy” labels and confusing ingredients, we found it surprisingly hard to find food that actually felt clean, filling, and honest.
+                                The Clean Crate was born from a very real, everyday struggle — wanting to eat healthy without giving up on taste, convenience, or trust. In a world full of “healthy” labels and confusing ingredients, we found it surprisingly hard to find food that actually felt clean, filling, and honest.
                             </p>
                             <p>
                                 Tired of the snack-time compromise between bland “health foods” and snacks loaded with empty calories, we knew there had to be a better way. One where nutrition didn’t mean boredom, and flavor didn’t come with guilt.
                             </p>
                             <p className="p-8 bg-blue-600 dark:bg-blue-900 rounded-[2rem] shadow-xl italic text-xl text-white font-medium">
-                                "By combining traditional nutritional wisdom with modern, crave-worthy flavors, we created snacks that are as Poushtik as they are Pop."
+                                "By combining traditional nutritional wisdom with modern, crave-worthy flavors, we created snacks that are as wholesome as they are delicious."
                             </p>
                             <p>
-                                No fillers. No junk. Just thoughtfully chosen ingredients that support active, everyday lifestyles. Because at PoushtPop, we believe good food should do more than taste good — it should help keep you moving.
+                                No fillers. No junk. Just thoughtfully chosen ingredients that support active, everyday lifestyles. Because at The Clean Crate, we believe good food should do more than taste good — it should help keep you moving.
                             </p>
                         </div>
                     </div>
@@ -94,16 +94,16 @@ export default function AboutPage() {
 
                             <div className="md:col-span-8 space-y-6 text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
                                 <p>
-                                    PoushtPop is a women-founded healthy snacking brand, built by two women in tech for modern, high-pressure lifestyles. We create thoughtfully crafted snacks using clean, balanced ingredients that support sustained energy, nourishment, and convenience—without compromising on flavour.
+                                    The Clean Crate is a women-founded healthy snacking brand, built by two women in tech for modern, high-pressure lifestyles. We create thoughtfully crafted snacks using clean, balanced ingredients that support sustained energy, nourishment, and convenience—without compromising on flavour.
                                 </p>
                                 <p>
                                     Our approach is rooted in simplicity, transparency, and mindful nutrition. No unnecessary additives, no confusing claims—just honest food designed for real, busy lives.
                                 </p>
                                 <p>
-                                    As founders, we understand firsthand the challenge of balancing demanding careers, personal health, and everyday responsibilities. That’s why every PoushtPop product is designed to be easy to carry, simple to consume, and nutritionally balanced—so making a healthier choice never feels like extra work.
+                                    As founders, we understand firsthand the challenge of balancing demanding careers, personal health, and everyday responsibilities. That’s why every The Clean Crate product is designed to be easy to carry, simple to consume, and nutritionally balanced—so making a healthier choice never feels like extra work.
                                 </p>
                                 <p className="font-medium text-zinc-900 dark:text-white">
-                                    We’re not here to promote food guilt or unrealistic eating standards. We’re here to make better choices easier, especially on the busiest days. At PoushtPop, nourishment is designed to fit into your life—not interrupt it.
+                                    We’re not here to promote food guilt or unrealistic eating standards. We’re here to make better choices easier, especially on the busiest days. At The Clean Crate, nourishment is designed to fit into your life—not interrupt it.
                                 </p>
                             </div>
                         </div>

@@ -145,7 +145,7 @@ export function InstagramFeedSection({ reels }: { reels: InstagramReel[] }) {
                         Tag <span className="text-blue-600">@cleancrate</span> or <span className="text-blue-600">#CleanCravings</span> to get featured
                     </p>
                     <a
-                        href="https://instagram.com/poushtpop"
+                        href="https://instagram.com/thecleancrate"
                         target="_blank"
                         className="inline-flex items-center gap-2 rounded-full bg-zinc-900 dark:bg-zinc-100 px-8 py-4 text-sm font-bold text-white dark:text-black shadow-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all hover:scale-105"
                     >
@@ -181,12 +181,23 @@ export function InstagramFeedSection({ reels }: { reels: InstagramReel[] }) {
                         >
                             {/* Media Side */}
                             <div className="flex-1 bg-zinc-900 relative flex items-center justify-center h-[50vh] md:h-full">
-                                <Image
-                                    src={selectedReel.media_type === "VIDEO" && selectedReel.thumbnail_url ? selectedReel.thumbnail_url : selectedReel.media_url}
-                                    alt={selectedReel.caption || "Instagram post"}
-                                    fill
-                                    className="object-contain"
-                                />
+                                {selectedReel.media_type === "VIDEO" ? (
+                                    <video
+                                        src={selectedReel.media_url}
+                                        controls
+                                        autoPlay
+                                        playsInline
+                                        loop
+                                        className="object-contain w-full h-full max-h-[80vh] md:max-h-full"
+                                    />
+                                ) : (
+                                    <Image
+                                        src={selectedReel.media_url}
+                                        alt={selectedReel.caption || "Instagram post"}
+                                        fill
+                                        className="object-contain"
+                                    />
+                                )}
                             </div>
 
                             {/* Details Side */}

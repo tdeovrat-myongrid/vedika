@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "framer-motion"
 
 const faqs = [
     {
-        question: "What makes PoushtPop different from other oat brands?",
-        answer: "PoushtPop combines high protein content (15g per serving) with zero added sugar and 100% natural ingredients. We focus on 'Ready to Eat' convenience without compromising on health or taste, using premium gluten-free oats and plant-based proteins."
+        question: "What makes The Clean Crate different from other oat brands?",
+        answer: "The Clean Crate combines high protein content (15g per serving) with zero added sugar and 100% natural ingredients. We focus on 'Ready to Eat' convenience without compromising on health or taste, using premium gluten-free oats and plant-based proteins."
     },
     {
         question: "Are your products totally gluten-free?",
@@ -22,7 +22,7 @@ const faqs = [
         answer: "Absolutely not. We sweeten our products naturally using dates, monk fruit, or stevia, ensuring you get a delicious taste without the sugar crash."
     },
     {
-        question: "Are PoushtPop products vegan?",
+        question: "Are The Clean Crate products vegan?",
         answer: "Yes, our entire range is 100% plant-based and vegan-friendly. We use pea protein and other plant-derived ingredients."
     },
     {
@@ -30,7 +30,7 @@ const faqs = [
         answer: "Our products have a shelf life of 9 months from the date of manufacturing when stored in a cool, dry place."
     },
     {
-        question: "Can I eat PoushtPop oats as a pre-workout meal or post-workout meal?",
+        question: "Can I eat The Clean Crate oats as a pre-workout meal or post-workout meal?",
         answer: "Definitely! The complex carbohydrates from oats provide sustained energy, while the high protein content supports muscle repair, making it an excellent pre-workout fuel."
     },
     {

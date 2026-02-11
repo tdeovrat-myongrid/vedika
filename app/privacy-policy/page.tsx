@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
                         Last updated: January 2026
                     </p>
                     <p>
-                        At The Clean Crate (PoushtPop), we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you visit our website or purchase our products.
+                        At The Clean Crate, we value your privacy and are committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you visit our website or purchase our products.
                     </p>
 
                     <h2>1. Information We Collect</h2>
@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
 
                     <h2>5. Contact Us</h2>
                     <p>
-                        If you have questions about this Privacy Policy, please contact us at <a href="mailto:hello@thecleancrate.com">hello@thecleancrate.com</a>.
+                        If you have questions about this Privacy Policy, please contact us at <a href="mailto:info@thecleancratefoods.com">info@thecleancratefoods.com</a>.
                     </p>
                 </div>
             </div>

@@ -49,7 +49,7 @@ export default function TermsOfServicePage() {
 
                     <h2>7. Contact Information</h2>
                     <p>
-                        Questions about the Terms of Service should be sent to us at <a href="mailto:hello@thecleancrate.com">hello@thecleancrate.com</a>.
+                        Questions about the Terms of Service should be sent to us at <a href="mailto:info@thecleancratefoods.com">info@thecleancratefoods.com</a>.
                     </p>
                 </div>
             </div>
