@@ -35,10 +35,10 @@ export function SiteFooter() {
                     <div>
                         <h3 className="font-bold text-zinc-900 dark:text-white mb-6">Shop</h3>
                         <ul className="space-y-4 text-sm text-zinc-500 dark:text-zinc-400">
-                            <li><NavLink href="#">All Products</NavLink></li>
-                            <li><NavLink href="#">Best Sellers</NavLink></li>
-                            <li><NavLink href="#">Bundles</NavLink></li>
-                            <li><NavLink href="#">Trial Packs</NavLink></li>
+                            <li><NavLink href="/#products">All Products</NavLink></li>
+                            <li><NavLink href="/#products">Best Sellers</NavLink></li>
+                            <li><NavLink href="/#products">Bundles</NavLink></li>
+                            <li><NavLink href="/#products">Trial Packs</NavLink></li>
                         </ul>
                     </div>
 
@@ -46,10 +46,10 @@ export function SiteFooter() {
                     <div>
                         <h3 className="font-bold text-zinc-900 dark:text-white mb-6">Support</h3>
                         <ul className="space-y-4 text-sm text-zinc-500 dark:text-zinc-400">
-                            <li><NavLink href="#">Help & FAQ</NavLink></li>
-                            <li><NavLink href="#">Track Order</NavLink></li>
+                            <li><NavLink href="/#faq">Help & FAQ</NavLink></li>
+                            <li><NavLink href="mailto:info@thecleancratefoods.com">Track Order</NavLink></li>
                             <li><NavLink href="/refund-policy">Shipping & Returns</NavLink></li>
-                            <li><NavLink href="#">Contact Us</NavLink></li>
+                            <li><NavLink href="/#contact">Contact Us</NavLink></li>
                         </ul>
                     </div>
 

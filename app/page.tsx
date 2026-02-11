@@ -78,7 +78,9 @@ export default async function Home() {
         </div>
 
         {/* FAQ Section */}
-        <FAQSection />
+        <div id="faq" className="scroll-mt-24">
+          <FAQSection />
+        </div>
 
         {/* Contact Us Section */}
         <div id="contact" className="scroll-mt-24">
