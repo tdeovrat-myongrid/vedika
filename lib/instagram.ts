@@ -68,31 +68,34 @@ export async function getLatestReels(): Promise<InstagramReel[]> {
         return MOCK_REELS;
     }
 
+    console.log("[Instagram] Token found, fetching live data...");
+
     try {
         // Fetch fields: id, media_type, media_url, thumbnail_url, permalink, caption
         const url = `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&access_token=${token}&limit=8`;
 
         const response = await fetch(url, {
-            next: { revalidate: 3600 } // Cache for 1 hour
+            cache: 'no-store' // Always fetch fresh data, never cache
         });
 
         if (!response.ok) {
             const errorText = await response.text();
-            console.error(`Failed to fetch Instagram posts: ${response.status} ${response.statusText}`, errorText);
+            console.error(`[Instagram] Failed to fetch posts: ${response.status} ${response.statusText}`, errorText);
             return MOCK_REELS;
         }
 
         const data = await response.json();
 
         if (!data.data || !Array.isArray(data.data)) {
-            console.error("Invalid response structure from Instagram API", data);
+            console.error("[Instagram] Invalid response structure from Instagram API", data);
             return MOCK_REELS;
         }
 
+        console.log(`[Instagram] Successfully fetched ${data.data.length} posts`);
         return data.data;
 
     } catch (error) {
-        console.error("Error fetching Instagram posts:", error);
+        console.error("[Instagram] Error fetching posts:", error);
         return MOCK_REELS;
     }
 }
