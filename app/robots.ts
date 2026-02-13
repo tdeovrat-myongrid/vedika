@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: "/",
             disallow: ["/api/", "/admin/"],
         },
-        sitemap: "https://thecleancrate.in/sitemap.xml",
+        sitemap: "https://www.thecleancratefoods.com/sitemap.xml",
     };
 }
