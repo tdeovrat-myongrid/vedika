@@ -14,49 +14,49 @@ const MOCK_REELS: InstagramReel[] = [
         media_url: "https://images.unsplash.com/photo-1541604112-2e09e2956c15?w=800&q=80",
         media_type: "VIDEO",
         caption: "Crunchy goodness! 🍪 #CleanCrate #HealthySnacks",
-        permalink: "https://www.instagram.com/thecleancrate/"
+        permalink: "https://www.instagram.com/thecleancrateofficial/"
     },
     {
         id: "2",
         media_url: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=800&q=80",
         media_type: "VIDEO",
         caption: "Morning routine sorted ☀️ #Oats #Breakfast",
-        permalink: "https://www.instagram.com/thecleancrate/"
+        permalink: "https://www.instagram.com/thecleancrateofficial/"
     },
     {
         id: "3",
         media_url: "https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=800&q=80",
         media_type: "VIDEO",
         caption: "Mocha Rush energy ☕️ #CoffeeLover #Protein",
-        permalink: "https://www.instagram.com/thecleancrate/"
+        permalink: "https://www.instagram.com/thecleancrateofficial/"
     },
     {
         id: "4",
         media_url: "https://images.unsplash.com/photo-1511690656952-34342d5c2895?w=800&q=80",
         media_type: "VIDEO",
         caption: "Healthy snacking ideas 🥗 #Wellness",
-        permalink: "https://www.instagram.com/thecleancrate/"
+        permalink: "https://www.instagram.com/thecleancrateofficial/"
     },
     {
         id: "5",
         media_url: "https://images.unsplash.com/photo-1544367563-12123d8965cd?w=800&q=80",
         media_type: "VIDEO",
         caption: "Cook with us! 👩‍🍳 #Recipe #HealthyEating",
-        permalink: "https://www.instagram.com/thecleancrate/"
+        permalink: "https://www.instagram.com/thecleancrateofficial/"
     },
     {
         id: "6",
         media_url: "https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=800&q=80",
         media_type: "VIDEO",
         caption: "Behind the scenes 🎥 #CleanCrate",
-        permalink: "https://www.instagram.com/thecleancrate/"
+        permalink: "https://www.instagram.com/thecleancrateofficial/"
     },
     {
         id: "7",
         media_url: "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=800&q=80",
         media_type: "VIDEO",
         caption: "Our story ✨ #HealthyLiving",
-        permalink: "https://www.instagram.com/thecleancrate/"
+        permalink: "https://www.instagram.com/thecleancrateofficial/"
     }
 ];
 

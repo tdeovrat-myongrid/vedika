@@ -11,7 +11,7 @@ export async function CuratedProductsGrid() {
     return (
         <section className="py-24 bg-background">
             <div className="container-wide mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-4">
+                <div className="flex flex-col md:flex-row items-center md:items-end justify-between mb-12 gap-4 text-center md:text-left">
                     <h2 className="text-3xl md:text-5xl font-heading text-foreground">Our Collection</h2>
                     <Link href="/products" className="hidden md:flex items-center gap-2 text-sm font-semibold uppercase tracking-wide border-b border-foreground pb-0.5 hover:text-accent transition-colors">
                         View All Products <ArrowUpRight className="w-4 h-4" />

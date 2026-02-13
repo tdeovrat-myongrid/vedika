@@ -142,10 +142,10 @@ export function InstagramFeedSection({ reels }: { reels: InstagramReel[] }) {
                 {/* Footer CTA */}
                 <div className="mt-16 text-center border-t border-zinc-100 dark:border-zinc-800 pt-12">
                     <p className="text-lg font-medium text-zinc-900 dark:text-white mb-6">
-                        Tag <span className="text-blue-600">@cleancrate</span> or <span className="text-blue-600">#CleanCravings</span> to get featured
+                        Tag <span className="text-blue-600">@thecleancrateofficial</span> or <span className="text-blue-600">#CleanCravings</span> to get featured
                     </p>
                     <a
-                        href="https://instagram.com/thecleancrate"
+                        href="https://instagram.com/thecleancrateofficial"
                         target="_blank"
                         className="inline-flex items-center gap-2 rounded-full bg-zinc-900 dark:bg-zinc-100 px-8 py-4 text-sm font-bold text-white dark:text-black shadow-lg hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all hover:scale-105"
                     >
@@ -205,7 +205,7 @@ export function InstagramFeedSection({ reels }: { reels: InstagramReel[] }) {
                                 <div className="flex items-center gap-3 mb-6">
                                     <div className="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm">CC</div>
                                     <div>
-                                        <p className="font-bold text-zinc-900 dark:text-white text-sm">cleancrate</p>
+                                        <p className="font-bold text-zinc-900 dark:text-white text-sm">thecleancrateofficial</p>
                                         <p className="text-xs text-zinc-500">Original Audio</p>
                                     </div>
                                     <a href={selectedReel.permalink} target="_blank" className="ml-auto text-blue-500 text-sm font-medium hover:underline">View on IG</a>
