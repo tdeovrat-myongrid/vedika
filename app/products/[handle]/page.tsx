@@ -8,6 +8,42 @@ import Link from "next/link";
 import { getProduct } from "@/lib/shopify";
 import { notFound } from "next/navigation";
 
+import { Metadata } from "next";
+import { JsonLd } from "@/components/json-ld";
+
+export async function generateMetadata({ params }: { params: Promise<{ handle: string }> }): Promise<Metadata> {
+    const { handle } = await params;
+    const product = await getProduct(handle);
+
+    if (!product) {
+        return {
+            title: "Product Not Found",
+            description: "The requested product could not be found."
+        };
+    }
+
+    const title = product.title;
+    const description = product.description.substring(0, 160); // Truncate for SEO
+    const image = product.images.edges[0]?.node.url;
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            images: [
+                {
+                    url: image,
+                    width: 800,
+                    height: 600,
+                    alt: title,
+                },
+            ],
+        },
+    };
+}
+
 export default async function ProductPage({ params }: { params: Promise<{ handle: string }> }) {
     const { handle } = await params;
     const product = await getProduct(handle);
@@ -16,8 +52,33 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
         notFound();
     }
 
+    const price = product.priceRange.minVariantPrice.amount;
+    const currency = product.priceRange.minVariantPrice.currencyCode;
+
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: product.title,
+        image: product.images.edges.map((e: any) => e.node.url),
+        description: product.description,
+        sku: product.variants.edges[0]?.node.id,
+        brand: {
+            "@type": "Brand",
+            name: "The Clean Crate"
+        },
+        offers: {
+            "@type": "Offer",
+            url: `https://thecleancrate.in/products/${handle}`,
+            priceCurrency: currency,
+            price: price,
+            availability: product.availableForSale ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+            itemCondition: "https://schema.org/NewCondition"
+        }
+    };
+
     return (
         <div className="min-h-screen bg-white text-zinc-900 selection:bg-black selection:text-white dark:bg-black dark:text-white dark:selection:bg-white dark:selection:text-black">
+            <JsonLd data={jsonLd} />
 
             <main className="pt-24 pb-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">

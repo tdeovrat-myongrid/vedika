@@ -1,3 +1,15 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "The Clean Crate | Premium Ready-to-Eat Protein Oats",
+  },
+  description: "Discover the best high-protein oats in India. 100% natural, delicious flavors, and ready in minutes. Perfect for your fitness journey.",
+  alternates: {
+    canonical: "https://thecleancrate.in",
+  },
+};
+
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 

@@ -13,8 +13,43 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "The Clean Crate | High Protein Oats",
-  description: "Fuel your day with our premium protein-packed oat mixes. 100% natural, delicious, and convenient.",
+  metadataBase: new URL("https://thecleancrate.in"),
+  title: {
+    default: "The Clean Crate | High Protein Oats",
+    template: "%s | The Clean Crate",
+  },
+  description: "Fuel your day with our premium protein-packed oat mixes. 100% natural, delicious, and convenient ready-to-eat breakfasts.",
+  keywords: ["protein oats", "healthy breakfast", "ready to eat", "oatmeal", "clean eating", "fitness food", "high protein breakfast"],
+  authors: [{ name: "The Clean Crate" }],
+  creator: "The Clean Crate",
+  openGraph: {
+    type: "website",
+    locale: "en_IN",
+    url: "https://thecleancrate.in",
+    title: "The Clean Crate | High Protein Oats",
+    description: "Fuel your day with our premium protein-packed oat mixes. 100% natural, delicious, and convenient.",
+    siteName: "The Clean Crate",
+    images: [
+      {
+        url: "/og-image.jpg", // We need to ensure this image exists or use a product image as fallback
+        width: 1200,
+        height: 630,
+        alt: "The Clean Crate - High Protein Oats",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "The Clean Crate | High Protein Oats",
+    description: "Fuel your day with our premium protein-packed oat mixes.",
+    images: ["/og-image.jpg"],
+    creator: "@thecleancrate",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.png",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 import { ThemeProvider } from "@/components/theme-provider";
