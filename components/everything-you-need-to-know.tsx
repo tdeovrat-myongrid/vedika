@@ -3,10 +3,18 @@
 import * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
-export function EverythingYouNeedToKnow() {
+interface EverythingYouNeedToKnowProps {
+    product?: any;
+}
+
+export function EverythingYouNeedToKnow({ product }: EverythingYouNeedToKnowProps) {
     const [activeTab, setActiveTab] = React.useState("Description")
 
     const tabs = ["Description", "Ingredients", "Nutrition", "How to use"]
+
+    // Dynamic data with fallbacks
+    const title = product?.title || "Mocha Rush – Ready To Eat Oats";
+    const description = product?.description || "Start your day with Mocha Rush, a wholesome, protein-rich breakfast crafted for modern, health-conscious lifestyles. Blending the rich taste of cocoa and coffee with the goodness of rolled oats, dry fruits, seeds, and whey protein, Mocha Rush delivers both nutrition and indulgence in every bite. Made with no added sugar and naturally sweetened using date powder, this ready-to-eat oats mix fuels your body with clean energy.";
 
     return (
         <section className="mx-auto max-w-7xl px-6 py-24 lg:px-8">
@@ -22,8 +30,8 @@ export function EverythingYouNeedToKnow() {
                             key={tab}
                             onClick={() => setActiveTab(tab)}
                             className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all relative z-10 ${activeTab === tab
-                                    ? "text-white shadow-sm"
-                                    : "text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white"
+                                ? "text-white shadow-sm"
+                                : "text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white"
                                 }`}
                         >
                             {activeTab === tab && (
@@ -53,11 +61,11 @@ export function EverythingYouNeedToKnow() {
                                 className="max-w-4xl mx-auto text-center"
                             >
                                 <h3 className="text-2xl font-bold text-zinc-900 dark:text-white mb-6">
-                                    Mocha Rush – Ready To Eat Oats
+                                    {title}
                                 </h3>
-                                <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg lg:text-xl">
-                                    Start your day with Mocha Rush, a wholesome, protein-rich breakfast crafted for modern, health-conscious lifestyles. Blending the rich taste of cocoa and coffee with the goodness of rolled oats, dry fruits, seeds, and whey protein, Mocha Rush delivers both nutrition and indulgence in every bite. Made with no added sugar and naturally sweetened using date powder, this ready-to-eat oats mix fuels your body with clean energy.
-                                </p>
+                                <div className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg lg:text-xl whitespace-pre-line">
+                                    {description}
+                                </div>
                             </motion.div>
                         )}
 

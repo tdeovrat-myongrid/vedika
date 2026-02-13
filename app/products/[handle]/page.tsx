@@ -95,7 +95,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
                     <ProductDetailsSection showViewDetailsLink={false} product={product} />
 
                     {/* Detailed Info Section (Wholesome Goodness etc.) */}
-                    <EverythingYouNeedToKnow />
+                    <EverythingYouNeedToKnow product={product} />
 
                     {/* Customer Reviews */}
                     <CustomerReviewsCarousel />
