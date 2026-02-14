@@ -23,8 +23,9 @@ export async function GET() {
     }, {} as Record<string, string>);
 
     return NextResponse.json({
-        message: "Environment Variable Diagnostic (v2 - Triggered Build)",
+        message: "Environment Variable Diagnostic (v3 - Check Domain)",
         timestamp: new Date().toISOString(),
+        domain_value: process.env.NEXT_PUBLIC_SHOPIFY_STORE_DOMAIN,
         status
     });
 }
