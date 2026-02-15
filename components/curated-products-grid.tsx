@@ -32,7 +32,7 @@ export async function CuratedProductsGrid() {
                                             src={image.url}
                                             alt={image.altText || product.title}
                                             fill
-                                            className="object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-105"
+                                            className="object-contain transition-transform duration-700 ease-in-out group-hover:scale-105"
                                         />
                                     ) : (
                                         <div className="w-full h-full flex items-center justify-center text-zinc-400">
