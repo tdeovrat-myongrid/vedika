@@ -34,6 +34,7 @@ export function ProductDetailsSection({ showViewDetailsLink = true, product }: P
     // Get image URL safely
     const imageUrl = product?.images?.edges?.[0]?.node?.url || "/pousht-pop-oats.jpg";
     const imageAlt = product?.images?.edges?.[0]?.node?.altText || title;
+    const backImageUrl = product?.images?.edges?.[1]?.node?.url || imageUrl;
 
     const handleAddToCart = async () => {
         // Fallback for demo if variantId is missing (Use Real ID)
@@ -81,7 +82,7 @@ export function ProductDetailsSection({ showViewDetailsLink = true, product }: P
 
             {/* Product Image Column - 3D Interactive */}
             <div className="w-full max-w-md mx-auto lg:max-w-none">
-                <InteractiveProductCard imageSrc={imageUrl} imageAlt={imageAlt} />
+                <InteractiveProductCard imageSrc={imageUrl} imageAlt={imageAlt} backImageSrc={backImageUrl} />
             </div>
 
             {/* Product Info Column */}

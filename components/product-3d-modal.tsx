@@ -5,11 +5,16 @@ import { Canvas, useLoader } from "@react-three/fiber"
 import { OrbitControls, Stage, useTexture, RoundedBox } from "@react-three/drei"
 import * as THREE from "three"
 
-function PouchModel() {
+interface PouchModelProps {
+    frontImageSrc: string;
+    backImageSrc: string;
+}
+
+function PouchModel({ frontImageSrc, backImageSrc }: PouchModelProps) {
     // Load textures
     const props = useTexture({
-        mapFront: '/pousht-pop-oats.jpg',
-        mapBack: '/pousht-pop-oats.jpg',
+        mapFront: frontImageSrc,
+        mapBack: backImageSrc,
     })
 
     return (
@@ -37,9 +42,11 @@ function PouchModel() {
 interface Product3DModalProps {
     isOpen: boolean;
     onClose: () => void;
+    frontImageSrc?: string;
+    backImageSrc?: string;
 }
 
-export function Product3DModal({ isOpen, onClose }: Product3DModalProps) {
+export function Product3DModal({ isOpen, onClose, frontImageSrc = '/pousht-pop-oats.jpg', backImageSrc = '/pousht-pop-oats.jpg' }: Product3DModalProps) {
     if (!isOpen) return null;
 
     return (
@@ -67,7 +74,7 @@ export function Product3DModal({ isOpen, onClose }: Product3DModalProps) {
                 <div className="flex-1 w-full h-full cursor-move">
                     <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 5], fov: 50 }}>
                         <Stage environment="city" intensity={0.6}>
-                            <PouchModel />
+                            <PouchModel frontImageSrc={frontImageSrc} backImageSrc={backImageSrc} />
                         </Stage>
                         <OrbitControls autoRotate autoRotateSpeed={2} />
                     </Canvas>

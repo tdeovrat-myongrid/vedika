@@ -8,12 +8,15 @@ import { Product3DModal } from "@/components/product-3d-modal"
 export interface InteractiveProductCardProps {
     imageSrc?: string;
     imageAlt?: string;
+    backImageSrc?: string;
 }
 
 export function InteractiveProductCard({
     imageSrc = "/pousht-pop-oats.jpg",
-    imageAlt = "Product Image"
+    imageAlt = "Product Image",
+    backImageSrc
 }: InteractiveProductCardProps) {
+    const resolvedBackImage = backImageSrc || imageSrc;
     // Rotation state
     const x = useMotionValue(0)
     const y = useMotionValue(0)
@@ -85,7 +88,7 @@ export function InteractiveProductCard({
                             src={imageSrc}
                             alt={imageAlt}
                             fill
-                            className="object-cover pointer-events-none"
+                            className="object-contain p-6 pointer-events-none"
                             priority
                         />
                         {/* Gloss/Reflection effect */}
@@ -108,10 +111,10 @@ export function InteractiveProductCard({
                         }}
                     >
                         <Image
-                            src={imageSrc}
+                            src={resolvedBackImage}
                             alt={`${imageAlt} Back`}
                             fill
-                            className="object-cover pointer-events-none"
+                            className="object-contain p-6 pointer-events-none"
                             priority
                         />
                         {/* Gloss/Reflection effect */}
@@ -123,7 +126,7 @@ export function InteractiveProductCard({
                 <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-1/2 h-4 bg-black/20 dark:bg-white/10 blur-xl rounded-full transform scale-y-50" />
             </div>
 
-            <Product3DModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+            <Product3DModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} frontImageSrc={imageSrc} backImageSrc={resolvedBackImage} />
         </>
     )
 }
