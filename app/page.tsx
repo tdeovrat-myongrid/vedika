@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "The Clean Crate | Premium Ready-to-Eat Protein Oats",
+    absolute: "The Clean Crate Foods | Ready to Eat Protein Oats | Quick to Prepare Oats India",
   },
-  description: "Discover the best high-protein oats in India. 100% natural, delicious flavors, and ready in minutes. Perfect for your fitness journey.",
+  description: "Buy the best ready-to-eat protein oats online in India. Quick to prepare, high-protein, no added sugar oats & protein bites by The Clean Crate. 100% natural, gluten free. Order now at thecleancratefoods.com.",
   alternates: {
-    canonical: "https://thecleancrate.in",
+    canonical: "https://www.thecleancratefoods.com",
   },
 };
 

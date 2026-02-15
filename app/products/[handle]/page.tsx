@@ -22,16 +22,22 @@ export async function generateMetadata({ params }: { params: Promise<{ handle: s
         };
     }
 
-    const title = product.title;
-    const description = product.description.substring(0, 160); // Truncate for SEO
+    const title = `${product.title} | Buy Online India`;
+    const rawDescription = product.description.substring(0, 120);
+    const description = `${rawDescription} | Ready to eat, quick to prepare protein oats by The Clean Crate Foods. Order online at thecleancratefoods.com.`;
     const image = product.images.edges[0]?.node.url;
 
     return {
         title,
         description,
+        keywords: ["ready to eat oats", "quick to prepare oats", "protein oats India", "The Clean Crate", product.title],
+        alternates: {
+            canonical: `https://www.thecleancratefoods.com/products/${handle}`,
+        },
         openGraph: {
             title,
             description,
+            url: `https://www.thecleancratefoods.com/products/${handle}`,
             images: [
                 {
                     url: image,
@@ -68,7 +74,7 @@ export default async function ProductPage({ params }: { params: Promise<{ handle
         },
         offers: {
             "@type": "Offer",
-            url: `https://thecleancrate.in/products/${handle}`,
+            url: `https://www.thecleancratefoods.com/products/${handle}`,
             priceCurrency: currency,
             price: price,
             availability: product.availableForSale ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",

@@ -10,11 +10,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         "/about",
         "/contact",
         "/products",
+        "/blogs",
+        "/privacy-policy",
+        "/refund-policy",
+        "/terms-of-service",
+        "/cookie-policy",
     ].map((route) => ({
         url: `${baseUrl}${route}`,
         lastModified: new Date().toISOString(),
         changeFrequency: "daily" as const,
-        priority: route === "" ? 1 : 0.8,
+        priority: route === "" ? 1 : route === "/products" ? 0.9 : 0.7,
     }));
 
     // Dynamic product routes
