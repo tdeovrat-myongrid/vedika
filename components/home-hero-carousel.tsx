@@ -24,7 +24,7 @@ const slides = [
     },
     {
         id: "protein-bites",
-        image: "/hero-bites.jpg",
+        image: "/hero-bites.png",
         alt: "Clean Crate Protein Bites",
         title: <>Protein Bites.</>,
         description: "Clean, high-protein bites made for smart snacking.",
